@@ -19,6 +19,7 @@
     polaris-chip {
       margin: 16px;
     }
+    
   </style>
   <title>polaris-chip / my-card</title>
 </head>
@@ -26,15 +27,20 @@
 <body>
   <h1>polaris-chip</h1>
   <!-- this is going to do whatever the tag's defaults are -->
+  <polaris-chip></polaris-chip>
+  <!-- this is going to take the tag and change the title -->
   <polaris-chip title="News and Record" link="https://psu.edu/"></polaris-chip>
   <polaris-chip title="Faculty"></polaris-chip>
-  <polaris-chip title="Colleges"></polaris-chip>
+  <polaris-chip title="Colleges"></polaris-chip> 
   <polaris-chip title="Streams"></polaris-chip>
-  <!-- this is going to take the tag and change the title -->
   <polaris-chip title="Cool stuff"></polaris-chip>
 
-  <h1>my-card</h1>
-  <my-card></my-card>
+  <h1>my cards</h1>
+  <my-card title="Falling" imageLink="https://www.vargaslawoffice.com/wp-content/uploads/2018/09/Tripping-and-Falling-Versus-Slipping-and-Falling-The-Distinctions-May-Surprise-You.jpg" desc="moving from a higher to a lower level, typically rapidly and without control. learn more?" buttonLink="https://www.youtube.com/watch?v=xvFZjo5PgG0"></my-card>
+  <my-card title="Apology" imageLink="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Emoticon_Face_Frown_GE.png/640px-Emoticon_Face_Frown_GE.png" desc="a regretful acknowledgment of an offense or failure. learn more?" buttonLink="https://www.youtube.com/watch?v=xvFZjo5PgG0"></my-card>
+  <my-card title="Regret" imageLink="https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/field_blog_entry_teaser_image/2019-12/man_with_regret_pixabay_public_domain_0.jpeg.jpg?itok=jyAoHM7B" desc="feel sad, repentant, or disappointed over (something that has happened or been done, especially a loss or missed opportunity). learn more?" buttonLink="https://www.youtube.com/watch?v=xvFZjo5PgG0"></my-card>
+  <my-card title="Remorse" imageLink="https://media.swncdn.com/via/images/2023/05/15/30711/30711-istockgetty-images-plusdamircudic_source_file.jpg" desc="deep regret or guilt for a wrong committed. learn more?" buttonLink="https://www.youtube.com/watch?v=xvFZjo5PgG0"></my-card>
+  <my-card title="Growth" imageLink="https://cdn.corporatefinanceinstitute.com/assets/exponential-growth-1024x683.jpeg" desc="the process of developing or maturing physically, mentally, or spiritually. learn more?" buttonLink="https://www.youtube.com/watch?v=xvFZjo5PgG0"></my-card>
 
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
