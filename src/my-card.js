@@ -43,7 +43,7 @@ export class MyCard extends LitElement {
     }
      
     #cardlist{
-      display: flex;
+      display: inline-flex;
     }
     
     .card{
@@ -54,6 +54,7 @@ export class MyCard extends LitElement {
       margin: 32px;
       padding: 0px 0px 35px 0px;
       width: 350px;
+      border-radius: 35px;
     }
 
     .title{
