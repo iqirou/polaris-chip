@@ -51,16 +51,18 @@ export class PolarisChip extends LitElement {
       }
 
       span {
-        background-color: orange;
-        color: black;
+        background-color: black;
+        color: white;
         font-size: 24px;
         padding: 16px;
         margin: 8px;
+        border-radius: 15px;
+        border: 3px solid grey;
       }
 
       span:hover {
         background-color: grey;
-        border: 1px solid black;
+        border: 2px solid black;
       }
 
       a {
@@ -88,7 +90,13 @@ export class PolarisChip extends LitElement {
     // it is going to print the title of the element. The magic of Lit is that
     // when title is changed (even by inspecting the document and hacking the value)
     // it will automatically update what is displayed and do so incredibly quickly
-    return html`<a href="${this.link}" rel="noopener noreferrer"><span>${this.title}</span></a>`;
+    return html`
+      <a href="${this.link}" rel="noopener noreferrer">
+        <span>
+          ${this.title}
+        </span>
+      </a>
+    `;
   }
 
   // LitElement uses the properties call to do the following:
