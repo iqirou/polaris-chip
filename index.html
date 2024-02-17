@@ -62,7 +62,7 @@
     <button class="edit-buttons" id="change-image">Change Image</button>
     <button class="edit-buttons" id="change-bg">Change Background</button>
     <button class="edit-buttons" id="delete-card">Delete Card</button>
-  </div>
+  </div> 
 
   <div id="card-list">
     <div class="card">
@@ -74,48 +74,18 @@
       summary="What is falling?"><p>
         Moving from a <b>higher</b> to a <b>lower</b> level, typically <b>rapidly</b> and <b>without control</b>.<br><br><i>learn more?</i>
       </p></my-card>  
-      
-      <my-card fancy 
-      title="Apology" 
-      image_link="https://benstich.com/wp-content/uploads/2014/04/Frustrated-African-American-man-apologizing-to-woman-after-quarrel.jpg" 
-      button_link="https://www.youtube.com/watch?v=xvFZjo5PgG0" 
-      summary="What is an apology?"><p>
-        A <b>regretful acknowledgment</b> of an <b>offense or failure</b>.<br><br><i>learn more?</i>
-      </p></my-card>
-      
-      <my-card fancy 
-      title="Regret" 
-      image_link="https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/field_blog_entry_teaser_image/2019-12/man_with_regret_pixabay_public_domain_0.jpeg.jpg?itok=jyAoHM7B" 
-      button_link="https://www.youtube.com/watch?v=xvFZjo5PgG0" 
-      summary="What is regret?">
-      <p>
-        Feel <b>sad, repentant, or disappointed</b> over something that <b>has happened or been done</b>, especially a loss or missed opportunity.<br><br><i>learn more?</i>
-      </p></my-card>
-
-      <my-card fancy 
-      title="Remorse" 
-      image_link="https://media.swncdn.com/via/images/2023/05/15/30711/30711-istockgetty-images-plusdamircudic_source_file.jpg"  
-      button_link="https://www.youtube.com/watch?v=xvFZjo5PgG0" 
-      summary="What is remorse?"><p>
-        Deep <b>regret</b> or <b>guilt</b> for a wrong committed.<br><br><i>learn more?</i>
-      </p></my-card>
-
-      <my-card fancy
-      title="Growth" 
-      image_link="https://cdn.corporatefinanceinstitute.com/assets/exponential-growth-1024x683.jpeg" 
-      button_link="https://www.youtube.com/watch?v=xvFZjo5PgG0" 
-      summary="What is growth?"><p>
-        The process of <b>developing</b> or <b>maturing</b> physically, mentally, or spiritually.<br><br><i>learn more?</i>
-      </p></my-card>
-
     </div>
   </div>
 
-
-  <!-- this is what is bringing in the definition for this tag -->
+  <h1>my counter</h1>
+  <my-count fancy></my-count>
+  <my-count fancy min="10" max="30" count="20"></my-count>
+  <my-count fancy min="100" max="200" count="140" multiple="20"></my-count>
+  
+  <!-- this is what bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
-
+  <script type="module" src="./src/my-count.js"></script>
 
   <!-- Button logic -->
   <script>
@@ -170,7 +140,7 @@
         document.getElementById('card1').image_link = "https://www.vargaslawoffice.com/wp-content/uploads/2018/09/Tripping-and-Falling-Versus-Slipping-and-Falling-The-Distinctions-May-Surprise-You.jpg";
         is_image_changed = false;
       }
-    })
+    }) 
 
     //to change background
     document.querySelector('#change-bg').addEventListener('click', function(event){
@@ -182,8 +152,6 @@
         is_bg_changed = false;
       }
     })
-
   </script>
-
 </body>
 </html>
