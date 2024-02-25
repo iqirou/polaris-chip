@@ -147,4 +147,4 @@ export class MyCount extends LitElement {
   }
 }
 
-globalThis.customElements.define(MyCount.tag, MyCount);
+globalThis.customElements.define(MyCount.tag, MyCount); 
