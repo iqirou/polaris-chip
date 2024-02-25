@@ -9,26 +9,44 @@ export class StretchView extends LitElement {
     constructor() {
         super();
         //defaults
+        this.status = 3;
+        this.sticky = false;
+        this.open = true;
+        this.summary = "A L E R T";
+        this.date = "February 25, 2023 11:59 PM";
+        this.title = "BREAKING NEWS!"; 
+        this.text = "Weather expected to be extreme. Campus is closed for the whole day!";
+        this.linkText = "Learn More";
+        this.link = "https://www.psu.edu/news";
     }
 
     static get styles() {
         return css`
+        :host([sticky]) {
+            position: sticky;
+            top: 0;
+        }
         p {
             color: white;
             font-family: monospace;
         }
+        summary {
+            font-family: monospace;
+            text-align: center;
+            font-size: 32px;
+        }
         .stretch-wrapper {
             background-color: black;
-            display: inline-grid;
+            display: grid;
             border: 2px solid white;
             height: 380px;
         }
         .date-wrapper {
             display: inline-grid;
-            background-color: darkgoldenrod;
             height: 80px;
         }
         .date {
+            color: black;
             margin-left: 32px;
             margin-top: 32px;
             font-size: 12pt;
@@ -42,7 +60,7 @@ export class StretchView extends LitElement {
         }
         .alert-message-wrapper {
             display: inline;
-            margin: 0px 64px;
+            margin: 0px 32px;
         }
         .alert-text {
             font-size: 16px;
@@ -60,34 +78,61 @@ export class StretchView extends LitElement {
     }
 
     render() {
-        return html`
-        <div class="stretch-wrapper">
-            <div class="date-wrapper">
-                <p class="date">November 17, 2023 12:00 AM</p>
-            </div>
-            <div class="alert-topic">
-                <p class="alert-topic-name"><b><u>Breaking News!</u></b></p>
-            </div>
-            <div class="alert-message-wrapper">
-                <p class="alert-text"><b>Occaecat laboris incididunt ea labore quis in qui 
-                    commodo velit cillum et commodo. Dolore consectetur eu eu reprehenderit 
-                    anim fugiat in nostrud anim magna enim nisi. Mollit est incididunt sint 
-                    aliqua duis. Deserunt ut velit deserunt fugiat eiusmod. Do incididunt 
-                    laborum aliqua cupidatat adipisicing fugiat reprehenderit cillum id. 
-                    Minim minim elit occaecat id velit fugiat ea. Aliqua excepteur ea 
-                    excepteur cillum esse voluptate non elit laboris laboris esse est sunt 
-                    incididunt ullamco.</b></p>
+        var statusColor;
+        var dateWrapColor;
+        var summaryColor;
+        
+        if(this.status === 3) {
+            statusColor = "red";
+            dateWrapColor = "darkred";
+            summaryColor = "white";
+        }else if(this.status === 2) {
+            statusColor = "yellow";
+            dateWrapColor = "darkgoldenrod";
+            summaryColor = "black";
+        }else if(this.status === 1){
+            statusColor = "darkblue";
+            dateWrapColor = "lightblue";
+            summaryColor = "white";
+        }
 
-                <a href="https://www.psu.edu/news" class="more-info">Penn State News</a>                
-            </div>
+        return html`
+        <div class="stretch">
+            <details ?open=${this.open} class="alert-dropdown" style="background-color: ${statusColor};">
+                <summary style="color: ${summaryColor}">${this.summary}</summary> 
+                    <div class="stretch-wrapper">
+                    <div class="date-wrapper" style="background-color: ${dateWrapColor};">
+                        <p class="date"><b>${this.date}</b></p>
+                    </div>
+                    <div class="alert-topic">
+                        <p class="alert-topic-name"><b><u>${this.title}</u></b></p>
+                    </div>
+                    <div class="alert-message-wrapper">
+                        <p class="alert-text"><b>${this.text}</b></p>
+
+                        <a href="${this.link}" class="more-info">${this.linkText}</a>                
+                    </div>
+                </div>
+            </details>
         </div>
+        
         `;
     }
 
     static get properties() {
         return{
+            status: { type: Number , reflect: true },
+            summary: { type: String },
+            date: { type: String },
+            title: { type: String },
+            text: { type: String },
+            linkText: { type: String },
+            link: { type: String },
+            sticky: { type: Boolean , reflect: true },
+            open: { type: Boolean , reflect: true }
         };
     }
 }
 
 globalThis.customElements.define(StretchView.tag, StretchView);
+

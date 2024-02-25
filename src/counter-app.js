@@ -1,9 +1,9 @@
 import { LitElement, html, css } from 'lit';
 
-export class MyCount extends LitElement {
+export class CounterApp extends LitElement {
 
   static get tag() {
-    return 'my-count';
+    return 'counter-app';
   }
   
   constructor() {
@@ -147,4 +147,4 @@ export class MyCount extends LitElement {
   }
 }
 
-globalThis.customElements.define(MyCount.tag, MyCount); 
+globalThis.customElements.define(CounterApp.tag, CounterApp); 

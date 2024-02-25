@@ -11,11 +11,11 @@ export class MyCard extends LitElement {
   constructor() {
     super();
     // defaults
-    this.title = 'default title';
+    this.title = 'Apology';
     this.image_link = "https://cdn.pixabay.com/photo/2015/11/03/08/56/question-mark-1019820_960_720.jpg";
     this.button_link = "https://www.w3schools.com/html/";
-    this.desc = "set a description";
-    this.summary = "set a summary";
+    this.desc = "An apology is an expression of remorse";
+    this.summary = "What's an apology?";
     this.fancy = false;
   }
 
