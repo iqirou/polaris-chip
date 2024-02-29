@@ -12,10 +12,9 @@ export class StretchView extends LitElement {
         this.status = 3;
         this.sticky = false;
         this.open = true;
-        this.summary = "A L E R T";
-        this.date = "February 25, 2023 11:59 PM";
-        this.title = "BREAKING NEWS!"; 
-        this.text = "Weather expected to be extreme. Campus is closed for the whole day!";
+        this.date = "29th February, 2024";
+        this.summary = "TEST CAMPUS ALERT";
+        this.text = "Occaecat laboris incididunt ea labore quis in qui commodo velit cillum et commodo. Dolore consectetur eu eu reprehenderit anim fugiat in nostrud anim magna enim nisi. Mollit est incididunt sint aliqua duis. Deserunt ut velit deserunt fugiat eiusmod. Do incididunt laborum aliqua cupidatat adipisicing fugiat reprehenderit cillum id. Minim minim elit occaecat id velit fugiat ea. Aliqua excepteur ea excepteur cillum esse voluptate non elit laboris laboris esse est sunt incididunt ullamco.";
         this.linkText = "Learn More";
         this.link = "https://www.psu.edu/news";
     }
@@ -26,96 +25,76 @@ export class StretchView extends LitElement {
             position: sticky;
             top: 0;
         }
-        p {
-            color: white;
-            font-family: monospace;
-        }
-        summary {
-            font-family: monospace;
-            text-align: center;
-            font-size: 32px;
-        }
         .stretch-wrapper {
-            background-color: black;
-            display: grid;
-            border: 2px solid white;
-            height: 380px;
+            display: flex;
         }
         .date-wrapper {
-            display: inline-grid;
+            display: left;
             height: 80px;
         }
         .date {
-            color: black;
+            color: white;
             margin-left: 32px;
             margin-top: 32px;
             font-size: 12pt;
         }
-        .alert-topic {
-            height: 30px;
-            margin: 0px 32px;
-        }
-        .alert-topic-name {
-            font-size: 16pt;
-        }
         .alert-message-wrapper {
-            display: inline;
-            margin: 0px 32px;
+            padding: 16px;
+            margin: 0px 36px;
+            -webkit-box-align: unset;
+            -webkit-transform: skew(20deg);
+            transform: skew(20deg);
         }
         .alert-text {
             font-size: 16px;
+            transform: skew(-20deg);
         }
         .more-info {
-            color: lightblue;
-            font-family: monospace;
+            color: black;
+            font-style: italic;
             font-size: 16px;
             margin-bottom: 32px;
         }
         .more-info:hover {
-            border: 2px solid white;
+            opacity: 80%;
+        }
+        .close-button {
+            background: transparent;
+            border: none;
+            color: white;
         }
         `;
     }
 
     render() {
         var statusColor;
-        var dateWrapColor;
-        var summaryColor;
+        var textColor;
         
         if(this.status === 3) {
-            statusColor = "red";
-            dateWrapColor = "darkred";
-            summaryColor = "white";
+            statusColor = "darkred";
+            textColor = "red";
         }else if(this.status === 2) {
-            statusColor = "yellow";
-            dateWrapColor = "darkgoldenrod";
-            summaryColor = "black";
+            statusColor = "darkgoldenrod";
+            textColor = "yellow";
         }else if(this.status === 1){
             statusColor = "darkblue";
-            dateWrapColor = "lightblue";
-            summaryColor = "white";
+            textColor = "lightblue";
         }
 
         return html`
-        <div class="stretch">
-            <details ?open=${this.open} class="alert-dropdown" style="background-color: ${statusColor};">
-                <summary style="color: ${summaryColor}">${this.summary}</summary> 
-                    <div class="stretch-wrapper">
-                    <div class="date-wrapper" style="background-color: ${dateWrapColor};">
-                        <p class="date"><b>${this.date}</b></p>
-                    </div>
-                    <div class="alert-topic">
-                        <p class="alert-topic-name"><b><u>${this.title}</u></b></p>
-                    </div>
-                    <div class="alert-message-wrapper">
-                        <p class="alert-text"><b>${this.text}</b></p>
-
-                        <a href="${this.link}" class="more-info">${this.linkText}</a>                
-                    </div>
-                </div>
-            </details>
+        <div class="stretch-wrapper" style="background-color: ${statusColor};">
+            <div class="date-wrapper">
+                <p class="date">${this.date}</p>
+            </div>
+            <div class="alert-message-wrapper" style="background-color: ${textColor};">
+                <p class="alert-text"><b>${this.text} </b><a href="${this.link}" class="more-info"><b>PENN STATE NEWS</b></a></p>
+            </div>
+            <div class="button-wrapper">
+                <button class="close-button">
+                    X CLOSE
+                </button>
+            </div>
         </div>
-        
         `;
     }
 
@@ -123,9 +102,8 @@ export class StretchView extends LitElement {
         return{
             status: { type: Number , reflect: true },
             summary: { type: String },
-            date: { type: String },
-            title: { type: String },
             text: { type: String },
+            date: { type: String },
             linkText: { type: String },
             link: { type: String },
             sticky: { type: Boolean , reflect: true },
@@ -135,4 +113,3 @@ export class StretchView extends LitElement {
 }
 
 globalThis.customElements.define(StretchView.tag, StretchView);
-
