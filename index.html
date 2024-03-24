@@ -5,9 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Boilerplate for polaris chip">
+  <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
   <base href="/">
 
   <style>
+    /* IMPORTED FONT(S) */
+    @import url('https://fonts.cdnfonts.com/css/common-pixel');
+    
     :root,
     html,
     body {
@@ -42,6 +46,15 @@
     #card-list {
       color: white;
       display: inline-flex;
+    }
+    #invite-button {
+      margin: 32px;
+      padding: 16px 32px;
+      font-size: 16pt;
+    }
+    .invite-container {
+      margin: 32px;
+      display: inline-grid;
     }
   </style>
   <title>polaris-chip / my-card</title>
@@ -90,12 +103,17 @@
   <counter-app fancy></counter-app>
   <counter-app fancy min="10" max="30" count="20"></counter-app>
   <counter-app fancy min="100" max="200" count="140" multiple="20"></counter-app>
-  
+
+  <h1>invite user</h1>
+  <invite-component></invite-component>
+
+
   <!-- this is what bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
   <script type="module" src="./src/counter-app.js"></script>
   <script type="module" src="./src/stretch-view.js"></script>
+  <script type="module" src="./src/invite-component.js"></script>
 
   <!-- Button logic -->
   <script>
