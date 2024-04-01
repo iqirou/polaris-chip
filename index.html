@@ -5,12 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Boilerplate for polaris chip">
-  <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <base href="/">
 
   <style>
     /* IMPORTED FONT(S) */
-    @import url('https://fonts.cdnfonts.com/css/common-pixel');
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     
     :root,
     html,
@@ -61,6 +63,9 @@
 </head>
 
 <body>
+  <h1>invite user</h1>
+  <haxcms-party-ui></haxcms-party-ui>
+
   <h1>my stretch</h1>
   <stretch-view statusColor="#177637" textColor="#1BBD51"></stretch-view>
   <stretch-view status="1"></stretch-view>
@@ -104,16 +109,12 @@
   <counter-app fancy min="10" max="30" count="20"></counter-app>
   <counter-app fancy min="100" max="200" count="140" multiple="20"></counter-app>
 
-  <h1>invite user</h1>
-  <invite-component></invite-component>
-
-
   <!-- this is what bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
   <script type="module" src="./src/counter-app.js"></script>
   <script type="module" src="./src/stretch-view.js"></script>
-  <script type="module" src="./src/invite-component.js"></script>
+  <script type="module" src="./src/haxcms-party-ui.js"></script>
 
   <!-- Button logic -->
   <script>
