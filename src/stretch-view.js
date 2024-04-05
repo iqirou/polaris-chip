@@ -145,7 +145,7 @@ export class StretchView extends LitElement {
                 <p class="date"><b>${datetime}</b></p>
             </div>
             <div class="alert-message-wrapper" style="background-color: ${this.textColor};">
-                <img id="ex" class="icon" src="./src/images/mark.png">
+                <img id="ex" class="icon" src="https://github.com/iqirou/polaris-chip/blob/main/src/images/mark.png">
                 <p class="alert-text">
                     <slot><b>${text} </b></slot>
                     <a href="${this.link}" class="more-info"><b>${summary}</b></a>
