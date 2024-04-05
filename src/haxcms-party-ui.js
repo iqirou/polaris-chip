@@ -205,3 +205,10 @@ export class WhatEver extends DDD {
 }
 
 globalThis.customElements.define(WhatEver.tag, WhatEver);
+
+/*
+    TO DO:
+    - how to make images show up on vercel?????
+    - sound fx
+    - enter key thingy
+*/
