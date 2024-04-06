@@ -8,6 +8,8 @@ import '@lrnwebcomponents/rpg-character/rpg-character.js';
     Everything should be good but I noticed that after I saved my party (after click on "Save Party" button),
     other functions wont work (buttons mainly). After reloading the page and seeing my characters saved,
     the functions work again (adding users, deleting, etc). Minor issue but I dont know why that is happening.
+
+    ALSO,, audios dont work on vercel :[
 */
 
 export class WhatEver extends DDD {                
