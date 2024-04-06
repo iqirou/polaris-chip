@@ -2,6 +2,14 @@ import { html, css } from "lit";
 import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
 import '@lrnwebcomponents/rpg-character/rpg-character.js';
  
+/*
+    GREETINGS LA/INSTRUCTOR:
+
+    Everything should be good but I noticed that after I saved my party (after click on "Save Party" button),
+    other functions wont work (buttons mainly). After reloading the page and seeing my characters saved,
+    the functions work again (adding users, deleting, etc). Minor issue but I dont know why that is happening.
+*/
+
 export class WhatEver extends DDD {                
     static get tag() {
         return 'haxcms-party-ui';
@@ -98,6 +106,9 @@ export class WhatEver extends DDD {
 
     render() {
         return html`
+        <audio id="coin-soundfx" src="./src/media/coinfx.mp3"></audio>
+        <audio id="click-soundfx" src="./src/media/clickfx.mp3"></audio>
+        <audio id="void-soundfx" src="./src/media/voidfx.mp3"></audio>
         <div class="invite-panel">
             <confetti-container id="confetti">
                 <p class="panel-title">PARTY GUI</p>
@@ -133,6 +144,9 @@ export class WhatEver extends DDD {
         for (let i = 0; i < this.userparty.length; i++) {
             if(username === this.userparty[i]){
                 alert("Error: Username already in party"); 
+                input.value = '';
+                input.focus();
+                this.requestUpdate();
                 pass = false;
             }
         }
@@ -143,16 +157,23 @@ export class WhatEver extends DDD {
         }
         if(!/^[a-z0-9]{1,10}$/.test(username)){
             alert("Error: Lowercase letters or numbers only!"); 
+            input.value = '';
+            input.focus();
+            this.requestUpdate();
             pass = false;
         }
 
         if(pass && username !== '' && this.userparty.length < this.partysize){
             this.userparty.push(username);
+            this.shadowRoot.getElementById("click-soundfx").play();
             input.value = '';
             input.focus();
             this.requestUpdate();
         } else if(this.userparty.length === this.partysize){
             alert("Error: Max party size reached!");
+            input.value = '';
+            input.focus();
+            this.requestUpdate();
         }
     }
 
@@ -163,22 +184,33 @@ export class WhatEver extends DDD {
     }
 
     saveParty(){
+        const input = this.shadowRoot.getElementById('textfield');
+
         if(this.userparty.length === 0){
             alert("Error: No user in party!");
         }
         if(this.userparty.length !== 0 && this.userparty.length <= this.partysize){
             this.makeItRain();
+            this.shadowRoot.getElementById("coin-soundfx").play();
             const partyString = this.userparty.toString();
             this.userparty = localStorage.setItem("party", partyString);
             alert("Party saved!\nSaved party: " + partyString);
+            input.value = '';
+            input.focus();
+            this.requestUpdate();
         }
     }
 
     deleteParty() {
+        const input = this.shadowRoot.getElementById('textfield');
+
         if(this.userparty.length > 0) {
             this.userparty.splice(0, this.userparty.length);
             localStorage.removeItem("party");
+            this.shadowRoot.getElementById("void-soundfx").play();
             alert("Notice: Party deleted!");
+            input.value = '';
+            input.focus();
             this.requestUpdate();
         }else {
             alert("Error: No saved user in party");
@@ -205,10 +237,3 @@ export class WhatEver extends DDD {
 }
 
 globalThis.customElements.define(WhatEver.tag, WhatEver);
-
-/*
-    TO DO:
-    - how to make images show up on vercel?????
-    - sound fx
-    - enter key thingy
-*/
