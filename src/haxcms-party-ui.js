@@ -180,6 +180,7 @@ export class WhatEver extends DDD {
     deleteName(clickedID) { 
         const index = this.userparty.indexOf(clickedID.target.id);
         this.userparty.splice(index, 1);
+        this.shadowRoot.getElementById("void-soundfx").play();
         this.requestUpdate();
     }
 
